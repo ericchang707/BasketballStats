@@ -1,1 +1,14 @@
 import sqlite3
+
+sqlite_file = 'athletes_statistics.sqlite'         #name of sqlite file
+
+
+#connecting to database
+conn = sqlite3.connect(sqlite_file)
+c = conn.cursor()
+
+#creating new sqlite table with multiple columns
+c.execute('CREATE TABLE all_atheletes(id integer primary key, full_name string, team string, PPG integer, FGM integer, Steals integer, Assists integer, Rebounds integer, Blocks Integer, FG_Miss integer, Turnovers integer, Salary Integer)')
+
+conn.commit()
+conn.close()
