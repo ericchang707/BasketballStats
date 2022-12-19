@@ -1,0 +1,14 @@
+import sqlite3
+
+sqlite_file = 'athletes_statistics.sqlite'
+
+conn = sqlite3.connect(sqlite_file)
+c = conn.cursor()
+
+#sample insertion of an NBA player
+athletes = [(29, 'Jamaal','Murray',26.1,721,58,457,497,84,155,662,225,22756344)]
+
+c.executemany('INSERT INTO all_athletes VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',athletes)
+
+conn.commit()
+conn.close()
