@@ -1,0 +1,19 @@
+import sqlite 3
+
+connection = sqlite3.connect("athletes_statistics.sqlite")
+
+cursor = connection.cursor()
+
+#sample deletion
+deleteSQLStatement = ("DELETE from all_athletes where full_name = \"Kawhi Leonard\"")
+
+cursor.execute(deleteSQLStatement)
+
+sqlQuery = ("Select * from all_athletes")
+cursor.execute(sqlQuery)
+recs = cursor.fetchall()
+
+print(recs)
+
+connection.commit()
+connection.close()
