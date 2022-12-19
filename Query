@@ -1,0 +1,10 @@
+import sqlite3
+sqlite_file = 'athletes_statistics.sqlite'
+
+conn = sqlite3.connect(sqlite_file)
+c = conn.cursor()
+for row in c.execute('SELECT * FROM all_athletes'):
+  print(row)
+c.execute('SELECT * FROM all_athletes')
+
+conn.close()
