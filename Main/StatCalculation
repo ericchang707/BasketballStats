@@ -1,0 +1,76 @@
+import sqlite3
+import Test1.GUI as G
+
+def main():
+  sqlite_file = 'athletes_statistics.sqlite'
+  
+  conn = sqlite3.connect(sqlite_file)
+  c = conn.cursor()
+  
+  x = lambda a,b,c: (a*b)/c
+  
+  for row in c.execute("SELECT * FROM all_athletes WHERE full_name=?".(finder,)):
+    print('Name: '+ row[1])
+    print('Team: '+ row[2])
+    print('PPG:')
+    print(float(row[3]))
+    print('FGM: ')
+    print(int(row[4]))
+    print('Steals: ')
+    print(int(row[5]))
+    print('Assists: ')
+    print(int(row[6]))
+    print('Rebounds: ')
+    print(int(row[7]))
+    print('Blocks: ')
+    print(int(row[8]))
+    print('Fouls: ')
+    print(int(row[9]))
+    print('FG_Miss: ')
+    print(int(row[10]))
+    print('Turnovers: ')
+    print(int(row[11]))
+    print('Salary($): ')
+    print(int(row[12]))
+    
+    value = calc.func1(row[4],1.583)
+    value1 = calc.func1(row[5],0.967)
+    value2 = calc.func1(row[6],0.851)
+    value3 = calc.func1(row[7],0.999)
+    value4 = calc.func1(row[8],0.745)
+    value5 = calc.func2(value,value1,value2,value3,value4)
+    value6 = calc.func1(row[9],0.525)
+    value7 = calc.func1(row[10],0.856)
+    value8 = calc.func1(row[11],0.946)
+    value9 = calc.func4(float(value6),float(value7),float(value8))
+    value10 = calc.func3(value5,value9)
+    value11 = calc.func5(value13,value11)
+    print('Weighted Efficiency Rating:')
+    print(value11)
+    value12 = x(10,900,2.1)
+    value13 = calc.func5(row[12],value12)
+    value14 = calc.func5(value13,value11)
+    
+    print('Cost Efficiency Rating)
+    print(value14)
+    
+if value11 >130:
+  print("The Weighted Efficiency Rating is Superior")
+elif value11 > 80 and value14 <130:
+  print("The Weighted Efficiency Rating is Average")
+else:
+  print("The Weighted Efficiency Rating is Poor")
+
+    
+if value14 > 50:
+  print("The Cost Efficiency Rating is Poor")
+elif value14 > 25 and value14 < 50:
+  print("The Cost Efficiency Rating is Average")
+else:
+  print("The Weighted Efficiency Rating is Superior")
+
+conn.commit()
+conn.close()
+
+G.root.mainloop()
+    
